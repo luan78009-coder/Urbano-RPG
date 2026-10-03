@@ -104,7 +104,7 @@ async function load(){let r=await fetch('/api/denuncias');let d=await r.json();d
 });
 
 app.get("/api/denuncias", requireAdmin, async (req,res)=>{
-  try { const d=await supabase("/rest/v1/denuncias?select=*&order=created_at.desc"); res.json(d); }
+  try { const d=await supabase("/rest/v1/denuncias?select=*"); res.json(d); }
   catch(e){res.status(500).json({error:e.message});}
 });
 
