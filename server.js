@@ -3,6 +3,7 @@ const session = require("express-session");
 const multer = require("multer");
 
 const app = express();
+app.set("trust proxy", 1);
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
 const PORT = process.env.PORT || 10000;
